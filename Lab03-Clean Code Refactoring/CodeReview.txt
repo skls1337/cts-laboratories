@@ -1,0 +1,13 @@
+Code review
+
+1. Code structure and naming conventions
+
+-package name is too generic; where is the module name?
+- improper class name
+- improper function name
+- improper function arguments
+
+2. Implementation
+- too many "magic number" (hard-coded values)
+- is t limited to {1,2,3,4}
+- no validations
