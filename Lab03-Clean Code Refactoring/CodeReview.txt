@@ -11,3 +11,5 @@ Code review
 - too many "magic number" (hard-coded values)
 - is t limited to {1,2,3,4}
 - no validations
+
+3. Single Responsability & KISS

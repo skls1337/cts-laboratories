@@ -1,25 +1,41 @@
 package ro.ase.cts.g1092.refactoring.phase2;
 
+import ro.ase.acs.cts.laborator3.exceptions.InvaidValueException;
+
 public class SalesStrategy {
 
 	public static final int FIDELITY_YEARS_THRESHOLD = 10;
 	public static final float MAX_FIDELITY_DISCOUNT = 0.15f;
 
-	public float ComputeFinalPrice(int productType, float initialPrice, int yearsSinceRegistration) {
+	public float computeFinalPrice(ProductType productType, float initialPrice, int yearsSinceRegistration)
+			throws InvaidValueException {
+
+		if (initialPrice <= 0 || yearsSinceRegistration < 0) {
+			throw new InvaidValueException();
+		}
+
 		float finalPrice = 0;
 		float fidelityDiscount = (yearsSinceRegistration > FIDELITY_YEARS_THRESHOLD) ? MAX_FIDELITY_DISCOUNT
 				: (float) yearsSinceRegistration / 100;
-		if (productType == 1) {
+		switch (productType) {
+		case NEW:
 			finalPrice = initialPrice;
-		} else if (productType == 2) {
-			finalPrice = (initialPrice - (0.1f * initialPrice))
-					- fidelityDiscount * (initialPrice - (0.1f * initialPrice));
-		} else if (productType == 3) {
-			finalPrice = (initialPrice - (0.25f * initialPrice))
-					- fidelityDiscount * (initialPrice - (0.25f * initialPrice));
-		} else if (productType == 4) {
-			finalPrice = (initialPrice - (0.35f * initialPrice))
-					- fidelityDiscount * (initialPrice - (0.35f * initialPrice));
+			break;
+		case DISCOUNTED:
+			finalPrice = (initialPrice - (ProductType.DISCOUNTED.getDiscount() * initialPrice))
+					- fidelityDiscount * (initialPrice - (ProductType.DISCOUNTED.getDiscount() * initialPrice));
+			break;
+		case LIMITED_STOCK:
+			finalPrice = (initialPrice - (ProductType.LIMITED_STOCK.getDiscount() * initialPrice))
+					- fidelityDiscount * (initialPrice - (ProductType.LIMITED_STOCK.getDiscount() * initialPrice));
+			break;
+		case LEGACY:
+			finalPrice = (initialPrice - (ProductType.LEGACY.getDiscount() * initialPrice))
+					- fidelityDiscount * (initialPrice - (ProductType.LEGACY.getDiscount() * initialPrice));
+			break;
+		default:
+			throw new UnsupportedOperationException("Type not managed");
+
 		}
 		return finalPrice;
 	}
