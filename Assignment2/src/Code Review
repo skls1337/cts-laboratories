@@ -1,0 +1,28 @@
+Code review
+
+1. Code structure and naming conventions
+
+- package name is too generic;
+- class name is too generic (what kind of account: social network account,bank account, metin2 account...?);
+- class attributes are public
+- class attributes are not defined on a single line
+- inconsistent code indentation
+- inconsistent functions names
+- existence of functions that have no purpose but to print a message
+- inconsistent constructor definition; no default constructor 
+ 
+2. Implementation
+- too many hard-coded values
+- presence of unused variables declared inside functions  
+- too few validations
+- validations throw the same exception; 
+
+3. Single Responsibility & KISS
+- Reduce the complexity of the existing functions - KISS
+- create interfaces that will handle validations and creation of a bank account
+- handle operation on bank account by other entities
+
+4. Single Responsibility & Dependency Inversion (DIP)
+- refactor custom exceptions framework
+- remove the dependency on how we validate the loan value and the interest rate
+- remove the dependency on how we compute the interest and the total fees of a list of bank accounts
