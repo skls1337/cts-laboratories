@@ -15,6 +15,24 @@ public final class BankAccount {
 		return daysActive;
 	}
 
+	public BankAccount(BankAccountValidatorsInterface accountValidatorsInterface, double loanValue, double interestRate,
+			int daysActive, BankAccountType accountType)
+			throws InvalidInterestRateException, InvalidLoanValueException, InvalidDaysActiveException {
+		if (accountValidatorsInterface == null) {
+			throw new NullPointerException();
+		} else {
+			this.accountValidatorsInterface = accountValidatorsInterface;
+			setLoanValue(loanValue);
+			setInterestRate(interestRate);
+			setDaysActive(daysActive);
+			this.accountType = accountType;
+		}
+	}
+	
+	private BankAccount() {
+
+	}
+
 	public BankAccountType getAccountType() {
 		return accountType;
 	}
@@ -55,23 +73,6 @@ public final class BankAccount {
 		return "Loan: " + this.loanValue + "; Interest Rate: " + this.interestRate + "; days active:" + daysActive
 				+ "; Type: " + accountType + ";";
 	}
-
-	private BankAccount() {
-
-	}
-
-	public BankAccount(BankAccountValidatorsInterface accountValidatorsInterface, double loanValue, double interestRate,
-			int daysActive, BankAccountType accountType)
-			throws InvalidInterestRateException, InvalidLoanValueException, InvalidDaysActiveException {
-		if (accountValidatorsInterface == null) {
-			throw new NullPointerException();
-		} else {
-			this.accountValidatorsInterface = accountValidatorsInterface;
-			setLoanValue(loanValue);
-			setInterestRate(interestRate);
-			setDaysActive(daysActive);
-			this.accountType = accountType;
-		}
-	}
+	
 
 }

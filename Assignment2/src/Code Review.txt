@@ -4,22 +4,24 @@ Code review
 
 - package name is too generic;
 - class name is too generic (what kind of account: social network account,bank account, metin2 account...?);
-- class attributes are public
-- class attributes are not defined on a single line
+- class attributes are visible outside the class
+- class attributes are not defined on separated rows
+- inconsistent class attributes names
 - inconsistent code indentation
 - inconsistent functions names
-- existence of functions that have no purpose but to print a message
 - inconsistent constructor definition; no default constructor 
+- inconsistent constructor placement
  
 2. Implementation
 - too many hard-coded values
+- presence of functions with no use
 - presence of unused variables declared inside functions  
 - too few validations
 - validations throw the same exception; 
 
 3. Single Responsibility & KISS
 - Reduce the complexity of the existing functions - KISS
-- create interfaces that will handle validations and creation of a bank account
+- create interfaces that will handle validations for the creation of a bank account
 
 4. Single Responsibility & Dependency Inversion (DIP)
 - refactor custom exceptions framework
