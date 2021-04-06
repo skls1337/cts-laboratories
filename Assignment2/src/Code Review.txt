@@ -20,9 +20,9 @@ Code review
 3. Single Responsibility & KISS
 - Reduce the complexity of the existing functions - KISS
 - create interfaces that will handle validations and creation of a bank account
-- handle operation on bank account by other entities
 
 4. Single Responsibility & Dependency Inversion (DIP)
 - refactor custom exceptions framework
-- remove the dependency on how we validate the loan value and the interest rate
+- remove the dependency on how we validate the attributes
 - remove the dependency on how we compute the interest and the total fees of a list of bank accounts
+- handle operation on bank account by other entity
