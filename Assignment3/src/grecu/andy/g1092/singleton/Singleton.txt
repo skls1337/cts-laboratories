@@ -1,0 +1,7 @@
+- the title of the bachelor topic
+- The Singleton will handle the connections to the database
+- Advantages:
+ * single access point to the connection instance => easy to manage the resources through a single object
+ * the created instance is unique => it cannot be duplicated
+Disadvantages:
+ * Singleton pattern does not give thread safety => sharing the same instance via multi-threading may lead to application to underperform

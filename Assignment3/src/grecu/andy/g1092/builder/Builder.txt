@@ -1,0 +1,7 @@
+- the title of the bachelor topic
+- The Builder will assure the creation of the components that the application will manage
+- Advantages:
+ * Even if the code gets overwhelmed the effort pays of in terms flexibility => constructor parameters become much more readable and have a meaning
+ * Creating objects becomes less error-prone to the user, because of the explicit method call
+Disadvantages:
+ * Some attributes may be missed when creating an object using the Builder pattern
