@@ -3,21 +3,84 @@ package grecu.andy.g1092.builder;
 import java.util.ArrayList;
 import java.util.List;
 
-import grecu.andy.g1092.composite.User;
 
+public class Student extends User {
 
-public final class Student extends User {
+	protected String name;
+	protected String birthDate;
+	protected int groupNumber;
+	protected String series;
+	protected String faculty;
+	protected StudyYearEnum studyYear;
+	protected List<Integer> grades;
+	protected List<String> courses;
 
-	private String name;
-	private String birthDate;
-	private int groupNumber;
-	private String series;
-	private String faculty;
-	private StudyYearEnum studyYear;
-	List<Integer> grades;
-	List<String> courses;
+	
+	public String getName() {
+		return name;
+	}
 
-	private Student() {
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getBirthDate() {
+		return birthDate;
+	}
+
+	public void setBirthDate(String birthDate) {
+		this.birthDate = birthDate;
+	}
+
+	public int getGroupNumber() {
+		return groupNumber;
+	}
+
+	public void setGroupNumber(int groupNumber) {
+		this.groupNumber = groupNumber;
+	}
+
+	public String getSeries() {
+		return series;
+	}
+
+	public void setSeries(String series) {
+		this.series = series;
+	}
+
+	public String getFaculty() {
+		return faculty;
+	}
+
+	public void setFaculty(String faculty) {
+		this.faculty = faculty;
+	}
+
+	public StudyYearEnum getStudyYear() {
+		return studyYear;
+	}
+
+	public void setStudyYear(StudyYearEnum studyYear) {
+		this.studyYear = studyYear;
+	}
+
+	public List<Integer> getGrades() {
+		return grades;
+	}
+
+	public void setGrades(List<Integer> grades) {
+		this.grades = grades;
+	}
+
+	public List<String> getCourses() {
+		return courses;
+	}
+
+	public void setCourses(List<String> courses) {
+		this.courses = courses;
+	}
+
+	protected Student() {
 
 	}
 

@@ -1,10 +1,14 @@
 package grecu.andy.g1092.builder;
-import grecu.andy.g1092.composite.User;
 
 public final class Professor extends User {
 	private String name;
 	private String faculty;
 	private String hierarchy;
+
+	@Override
+	public String toString() {
+		return "Professor [name=" + name + ", faculty=" + faculty + ", hierarchy=" + hierarchy + "]";
+	}
 
 	public static class ProfessorBuilder {
 		Professor professor = null;

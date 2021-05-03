@@ -9,15 +9,17 @@ public class TestDecorator {
 		fantasyHero.takeAHit(500);
 
 		SuperHeroCharacter woundedHero = new WoundedDecorator(fantasyHero);
-		
+
 		woundedHero.move();
-		
+
 		fantasyHero.heal(200);
-		
-		SuperHeroCharacter heroWithShield=new  ShieldDecorator(fantasyHero, 200);
+
+		SuperHeroCharacter heroWithShield = new ShieldDecorator(fantasyHero, 200);
+		System.out.println(heroWithShield.power);
 		heroWithShield.takeAHit(500);
-		
-		SuperHeroCharacter heroWithShieldWithShield=new  ShieldDecorator(fantasyHero, 250);
+		System.out.println(fantasyHero.power);
+		System.out.println(heroWithShield.power);
+		SuperHeroCharacter heroWithShieldWithShield = new ShieldDecorator(fantasyHero, 250);
 		heroWithShieldWithShield.takeAHit(260);
 	}
 
