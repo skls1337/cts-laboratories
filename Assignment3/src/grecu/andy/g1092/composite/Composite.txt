@@ -1,4 +1,4 @@
-- the title of the bachelor topic
+- A mobile application designed as a student companion
 - The Composite treats individual objects and compositions of objects uniformly.
 Advantages:
  * New components can be added without a problem to the framework

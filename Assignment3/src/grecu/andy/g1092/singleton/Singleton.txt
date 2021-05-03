@@ -1,4 +1,4 @@
-- the title of the bachelor topic
+- A mobile application designed as a student companion
 - The Singleton will handle the connections to the database
 - Advantages:
  * single access point to the connection instance => easy to manage the resources through a single object

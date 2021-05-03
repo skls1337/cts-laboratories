@@ -1,4 +1,4 @@
-- the title of the bachelor topic
+- A mobile application designed as a student companion
 - The Builder will assure the creation of the components that the application will manage
 - Advantages:
  * Even if the code gets overwhelmed the effort pays of in terms flexibility => constructor parameters become much more readable and have a meaning
