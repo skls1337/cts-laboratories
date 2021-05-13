@@ -10,7 +10,7 @@ public class AccountGeneration {
 	private String address;
 	private int accoutCount;
 
-	public AccountGeneration(String name, String address, int accoutCount) {
+	private AccountGeneration(String name, String address, int accoutCount) {
 		this.name = name;
 		this.address = address;
 		this.accoutCount = accoutCount;
