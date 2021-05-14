@@ -11,7 +11,7 @@ public class TestFlywieght {
 		soldiers.add(new NPCCoordinates(10, 10, 115, "green"));
 		soldiers.add(new NPCCoordinates(10, 115, 10, "yellow"));
 
-		Model3DFlyweight soldierModel=(Model3DFlyweight) new Model3DFactory().getModel(ModelType.SOLDIER);
+		Model3DFlyweightInterface soldierModel=Model3DFactory.getModel(ModelType.SOLDIER);
 		
 		for(NPCCoordinates coords:soldiers) {
 			soldierModel.display(coords);
