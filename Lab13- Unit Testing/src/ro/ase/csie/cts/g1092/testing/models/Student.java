@@ -32,7 +32,11 @@ public class Student {
 	}
 
 	public void setName(String name) throws InvalidNameException {
-		this.name = name;
+		if (name.length() > MIN_NAME_SIZE) {
+			this.name = name;
+		} else {
+			throw new InvalidNameException();
+		}
 	}
 
 	public int getAge() {
@@ -40,7 +44,11 @@ public class Student {
 	}
 
 	public void setAge(int age) throws WrongAgeException {
-		this.age = age;
+		if (age < MIN_AGE) {
+			throw new WrongAgeException();
+		} else {
+			this.age = age;
+		}
 	}
 
 	public void setGrades(ArrayList<Integer> grades) throws WrongGradesException {
@@ -62,6 +70,20 @@ public class Student {
 		}
 		return sum / this.grades.size();
 
+	}
+
+	public int getMinGrade() {
+		if (grades.size() == 0) {
+			return 0;
+		} else {
+			int min = grades.get(0);
+			for (int grade : this.grades) {
+				if (min > grade) {
+					min = grade;
+				}
+			}
+			return min;
+		}
 	}
 
 }

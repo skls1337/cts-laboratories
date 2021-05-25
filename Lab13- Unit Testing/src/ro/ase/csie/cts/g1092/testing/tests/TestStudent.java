@@ -14,11 +14,12 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import ro.ase.csie.cts.g1092.testing.exceptions.WrongAgeException;
+import ro.ase.csie.cts.g1092.testing.exceptions.WrongGradesException;
 import ro.ase.csie.cts.g1092.testing.models.Student;
 
 public class TestStudent {
 
-	//test fixture
+	// test fixture
 	static Student student;
 	static ArrayList<Integer> grades;
 	static String initialName;
@@ -29,8 +30,8 @@ public class TestStudent {
 		grades = new ArrayList<>();
 		grades.add(9);
 		grades.add(10);
-		initialName="John";
-		initialAge=21;
+		initialName = "John";
+		initialAge = 21;
 	}
 
 	@AfterClass
@@ -66,13 +67,76 @@ public class TestStudent {
 
 	@Test
 	public void testSetAgeRightValues() {
-		int newAge = initialAge +1;
+		int newAge = initialAge + 1;
 		try {
 			student.setAge(newAge);
-			assertEquals("Testing for proper age value", newAge,student.getAge());
+			assertEquals("Testing for proper age value", newAge, student.getAge());
 		} catch (WrongAgeException e) {
 			fail("Got an exception when that was not expected");
 		}
+	}
+
+	@Test
+	public void testSetNameErrorCondition() {
+		String newName = "Io";
+		try {
+			student.setName(newName);
+			fail("Didn't got the expected exception");
+		} catch (InvalidNameException e) {
+			assertTrue(true);
+		}
+	}
+
+	@Test(expected = WrongAgeException.class)
+	public void testSetAgeErrorCondition() throws WrongAgeException {
+		int newAge = 2;
+		student.setAge(newAge);
+	}
+
+	@Test
+	public void testGetMinGradeOrderingAsc() throws WrongGradesException {
+		ArrayList<Integer> orderedGrades = new ArrayList<>();
+		orderedGrades.add(7);
+		orderedGrades.add(8);
+		orderedGrades.add(9);
+
+		student.setGrades(orderedGrades);
+		int expectedGrade = 7;
+		int minGrade = student.getMinGrade();
+
+		assertEquals("Testing with an ordered array of grades", expectedGrade, minGrade);
+	}
+
+	@Test
+	public void testGetMinGradeCardinalityZero() throws WrongGradesException {
+		ArrayList<Integer> emptyGrades = new ArrayList<>();
+		student.setGrades(emptyGrades);
+
+		int expectedGrade = 0;
+		int minGrade = student.getMinGrade();
+
+		assertEquals("Testing with zero grades", expectedGrade, minGrade);
+	}
+
+	@Test
+	public void testGetMinGradeCardinalityOne() throws WrongGradesException {
+		int singleGrade = 9;
+		ArrayList<Integer> oneGrade = new ArrayList<>();
+		oneGrade.add(singleGrade);
+		student.setGrades(oneGrade);
+
+		int expectedGrade = singleGrade;
+		int minGrade = student.getMinGrade();
+
+		assertEquals("Testing with zero grades", expectedGrade, minGrade);
+	}
+
+	@Test
+	public void testSetNameInverseRelation() throws InvalidNameException {
+		String newName = "Alice";
+		student.setName(newName);
+		
+		assertNotEquals(initialName, student.getName());
 	}
 
 }
