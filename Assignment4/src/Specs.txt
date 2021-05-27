@@ -1,0 +1,8 @@
+Being given the ServerInterface interface
+(3.5pts) 1. Implement a Singleton class for the Server and write 1 or 2 unit tests that will verify that the Singleton has been implemented correctly.
+(3.5pts) 2. Implement the Prototype pattern in the Server class and write 1 or 2 unit tests that will verify that the Prototype has been implemented correctly.
+(3pts) 3. Choose any other pattern from the ones covered by the course/laboratory, implement it using the given interface and write 1 or 2 unit tests 
+that will verify that the pattern has been implemented correctly. 
+Optional: You can use also Reflection for your unit tests
+Each unit test is implemented in a TestCase that corresponds to one of the 3 requirements. Each pattern is implemented in a dedicated package that contains the pattern name.
+When you test the patterns you should focus on their distinctive properties (ex for Singleton check if the references are pointing to the same object)
